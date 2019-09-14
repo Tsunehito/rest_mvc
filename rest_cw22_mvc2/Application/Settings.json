@@ -1,0 +1,11 @@
+{
+	"domaine": "http://localhost/rest_mvc/rest_cw22_mvc2",
+	"db" : {
+		"salt" : "fjdflghkjluyhgrfedzlmzlszmsmlzd",
+		"host" : "localhost",
+		"user" : "root",
+		"pass" : "",
+		"charset" : "utf8",
+		"name" : "rest_cw22"
+	}
+}

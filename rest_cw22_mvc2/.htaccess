@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /rest_mvc/rest_cw22_mvc2/Public
+
+# GET / DELETE
+# http://domaine/$controller?key1=value1&key2=value2
+
+# POST / PUT / PATCH
+# http://domaine/$controller 
+# Body:key1=value1&key2=value2
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?resource=$1&%{QUERY_STRING}
