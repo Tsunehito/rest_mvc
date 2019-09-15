@@ -17,7 +17,7 @@ class Router{
 		return __DIR__."{$DS}..{$DS}Application{$DS}Controllers{$DS}" . ucfirst(strtolower($name)) . ".php";
 	}
 
-	public static function dispatchPage(String $resource ) : String{
+	public static function dispatchPage(String $resource ){
 		$controller = "";
 		$method 	= "";
 		$parameters	= [];
@@ -31,7 +31,6 @@ class Router{
 		}
 		if(method_exists($controller, self::getActionName())){
 			$action = self::getActionName();
-		die($controller->$action($parameters));
 			switch ($_SERVER['REQUEST_METHOD']) {
 				case "GET" :
 				case "DELETE" : 

@@ -7,7 +7,6 @@ function jsonToTable(json, classes)
     var cols = Object.keys(keys);
     var headerRow = '';
     var bodyRows = '';
-    var table = '';
 
     var classes = classes || '';
 
@@ -25,9 +24,9 @@ function jsonToTable(json, classes)
         }
 
         // Btn edit
-        bodyRows += '<td><button type="button" class="btn btn-outline-success" id="editRow" value="'+ article['id'] +'">Edit</button></td>';
+        bodyRows += '<td><button type="button" class="btn btn-outline-success editRow" value="'+ article['id'] +'">Edit</button></td>';
         // Btn delete
-        bodyRows += '<td><button type="button" class="btn btn-outline-danger" id="deleteRow" value="'+ article['id'] +'">X</button></td>';
+        bodyRows += '<td><button type="button" class="btn btn-outline-danger deleteRow" value="'+ article['id'] +'">X</button></td>';
         bodyRows += '</tr>';
     }
 
@@ -38,7 +37,7 @@ function jsonToTable(json, classes)
     return creatTable.innerHTML = table;
 }
 
-// creat a table from JSON
+// add a row from JSON
 function addRowToTable(json)
 {
     var tbody = document.querySelector('.tbody');

@@ -23,9 +23,9 @@ class Article extends Controller {
 
 		$error = $article->validationData($data);
 
-		if(empty($error)){
-			$result = $article->insert($data);
-			$this->setResponseBody($result, 201);
+        if(empty($error)){
+            $result = $article->insert($data);
+            $this->setResponseBody($result, 201);
 		}else{
 			$this->setResponseBody([], 422, $error);
 		}	

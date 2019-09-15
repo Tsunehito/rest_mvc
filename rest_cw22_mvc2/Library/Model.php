@@ -10,16 +10,30 @@ abstract class Model{
 		$this->pdoObject = $pdoObject;
 	}
 
-	public function findByPrimary($primary, String $fields = "*"){
-		$stmt = $this->pdoObject->prepare("SELECT {$fields} FROM `{$this->table}` WHERE `{$this->primary}` = :primary");
+	public function findByPrimary($primary, String $fields = NULL){
+
+        if($fields == NULL) {
+            $fields = "*";
+        }
+
+        $stmt = $this->pdoObject->prepare("SELECT {$fields} FROM `{$this->table}` WHERE `{$this->primary}` = :primary");
 
 		$stmt->execute(["primary"=>$primary]);
 
 		return $stmt->fetchAll();
 	}
 
-	public function findAll(String $fields="*", String $where = '1'){
-		$stmt = $this->pdoObject->prepare("SELECT {$fields} FROM `{$this->table}` WHERE {$where}");
+	public function findAll(String $fields = NULL, String $where = NULL){
+
+        if($fields == NULL) {
+            $fields = "*";
+        }
+
+        if($where == NULL) {
+            $where = "1";
+        }
+
+        $stmt = $this->pdoObject->prepare("SELECT {$fields} FROM `{$this->table}` WHERE {$where}");
 		$stmt->execute();
 
 		return $stmt->fetchAll();

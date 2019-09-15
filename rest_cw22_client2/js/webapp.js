@@ -19,5 +19,3 @@ function getAllArticle() {
             console.log(responseJson);
         });
 }
-
-getAllArticle();

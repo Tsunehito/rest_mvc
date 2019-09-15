@@ -9,7 +9,7 @@ abstract class Controller{
 	private $responseBody = null;
 	private $responseHeader= [];
 
-	public function addResponseHeader(String $key, String $value) : void{
+	public function addResponseHeader(String $key, ?String $value) : void{
 		$this->responseHeader[$key] = $value;
 
 	} 
@@ -19,7 +19,7 @@ abstract class Controller{
 	}
 
 	public function clearOneResponseHeader(String $key): void{
-		if(array_key_exists($key, $responseHeader))
+		if(array_key_exists($key, $this->responseHeader))
 			unset($this->responseHeader[$key]);
 
 	}
